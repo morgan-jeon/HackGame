@@ -17,35 +17,42 @@ class cmd_Thread(QThread):
         self.cmd = arg
 
     def run(self):
+        flag = True
         cmd = self.cmd
         if cmd != '':
-            app = cmd.split(' ')[0]
-            # result = custom.result(cmd)
-            p = subprocess.Popen(cmd,
-                 shell=True,
-                 bufsize=0,  # 0=unbuffered, 1=line-buffered, else buffer-size
-                 stdin=subprocess.PIPE,
-                 stderr=subprocess.PIPE,
-                 stdout=subprocess.PIPE)
-            self.parent.textEdit.append('')
-            while True:
-                try:
-                    line = p.stdout.readline()
-                except:
-                    line = ''
-                if not line:
-                    self.parent.textEdit.insertPlainText(p.stderr.readline().decode('cp949'))
-                    self.parent.cursor.movePosition(QTextCursor.End)
-                    self.parent.textEdit.setTextCursor(self.parent.cursor)
-                    break
-                #print(line)
-                self.parent.textEdit.insertPlainText(line.decode('cp949'))
+            if flag:
+                result = custom.result(cmd)
+                if custom.isCorrect(cmd, self.parent.gameStep,self.parent.stepCount[self.parent.gameStep]) and self.parent.stepCount[self.parent.gameStep]:
+                    self.parent.tips.append(custom.newTip(self.parent.gameStep,self.parent.stepCount[self.parent.gameStep]))
+                    self.parent.stepCount[self.parent.gameStep] = 0
+                self.parent.textEdit.append(result)
                 self.parent.cursor.movePosition(QTextCursor.End)
                 self.parent.textEdit.setTextCursor(self.parent.cursor)
+                self.parent.textEdit.append('Console >> ')
+                self.parent.cursor.movePosition(QTextCursor.End)
+                self.parent.textEdit.setTextCursor(self.parent.cursor)
+            else:
+                app = cmd.split(' ')[0]
+                p = subprocess.Popen(cmd, shell=True, bufsize=0,stdin=subprocess.PIPE, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+                self.parent.textEdit.append('')
+                while True:
+                    try:
+                        line = p.stdout.readline()
+                    except:
+                        line = ''
+                    if not line:
+                        self.parent.textEdit.insertPlainText(p.stderr.readline().decode('cp949'))
+                        self.parent.cursor.movePosition(QTextCursor.End)
+                        self.parent.textEdit.setTextCursor(self.parent.cursor)
+                        break
+                    #print(line)
+                    self.parent.textEdit.insertPlainText(line.decode('cp949'))
+                    self.parent.cursor.movePosition(QTextCursor.End)
+                    self.parent.textEdit.setTextCursor(self.parent.cursor)
 
-            self.parent.textEdit.append('Console >> ')
-            self.parent.cursor.movePosition(QTextCursor.End)
-            self.parent.textEdit.setTextCursor(self.parent.cursor)
+                self.parent.textEdit.append('Console >> ')
+                self.parent.cursor.movePosition(QTextCursor.End)
+                self.parent.textEdit.setTextCursor(self.parent.cursor)
         else:
             self.parent.textEdit.append('Console >> ')
             self.parent.cursor.movePosition(QTextCursor.End)
@@ -67,7 +74,7 @@ class WindowClass(QMainWindow, form_class) :
         self.step.setStyleSheet("color: green;")
         self.tips.setStyleSheet("color: yellow;")
         self.step.setAlignment(Qt.AlignCenter)
-
+        self.stepCount = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
         self.updateGame(1)
         self.cursor = self.textEdit.textCursor()
         self.gameStep = 1
@@ -93,6 +100,13 @@ class WindowClass(QMainWindow, form_class) :
     def updateGame(self, step: int):
         self.step.setText(f'Step {step}')
         self.tips.setText(custom.tip(step))
+        if step == 1:
+            self.prev_btn.setStyleSheet("color: black;")
+        elif step == 7:
+            self.pushButton.setStyleSheet("color: black;")
+        else:
+            self.prev_btn.setStyleSheet("color: white;")
+            self.pushButton.setStyleSheet("color: white;")
 
     def lReturn(self):
         cmd = self.lineEdit.text()
