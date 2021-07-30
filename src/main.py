@@ -22,9 +22,10 @@ class cmd_Thread(QThread):
         if cmd != '':
             if flag:
                 result = custom.result(cmd)
-                if custom.isCorrect(cmd, self.parent.gameStep,self.parent.stepCount[self.parent.gameStep]) and self.parent.stepCount[self.parent.gameStep]:
+                if custom.isCorrect(cmd, self.parent.gameStep,self.parent.stepCount[self.parent.gameStep]) and self.parent.stepCount[self.parent.gameStep] < custom.semStep(self.parent.gameStep)-1:
+                    # print(self.parent.stepCount[self.parent.gameStep], custom.semStep(self.parent.gameStep))
                     self.parent.tips.append(custom.newTip(self.parent.gameStep,self.parent.stepCount[self.parent.gameStep]))
-                    self.parent.stepCount[self.parent.gameStep] = 0
+                    self.parent.stepCount[self.parent.gameStep] += 1
                 self.parent.textEdit.append(result)
                 self.parent.cursor.movePosition(QTextCursor.End)
                 self.parent.textEdit.setTextCursor(self.parent.cursor)
@@ -74,7 +75,7 @@ class WindowClass(QMainWindow, form_class) :
         self.step.setStyleSheet("color: green;")
         self.tips.setStyleSheet("color: yellow;")
         self.step.setAlignment(Qt.AlignCenter)
-        self.stepCount = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+        self.stepCount = [0,0,0,0,0,0,0]
         self.updateGame(1)
         self.cursor = self.textEdit.textCursor()
         self.gameStep = 1

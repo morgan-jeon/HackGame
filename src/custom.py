@@ -1,5 +1,9 @@
 from random import *
 
+def semStep(step: int):
+	semStep = [0,2,0,0,0]
+	return semStep[step]
+
 def metasploit(src: int):
 	return(f'META')
 
@@ -64,7 +68,8 @@ def tip(step: int):
 	return(tip[step])
 
 def newTip(step: int, count: int):
-	if count == 0:
+	# print(step, count)
+	if count == semStep(step):
 		return '다음 단계로 넘어가자'
 	nTip = ['',
 	['좋아 IP주소를 알아냈지?','잘했어 이제 그 파일을 대장에게 보내보자!'],
@@ -73,11 +78,13 @@ def newTip(step: int, count: int):
 	return newTip
 
 def isCorrect(cmd: str, step: int, count: int):
+	# print(cmd, step, count)
 	lis = ['',
 	['ipconfig','newbackdoor'],
 	'',
 	'']
 	if lis[step][count] == cmd:
+		# print(True)
 		return True 
 
 if __name__=="__main__":
