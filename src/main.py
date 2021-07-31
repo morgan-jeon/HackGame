@@ -22,20 +22,25 @@ class cmd_Thread(QThread):
         if cmd != '':
             if flag:
                 result = custom.result(cmd)
-                if custom.isCorrect(cmd, self.parent.gameStep,self.parent.stepCount[self.parent.gameStep]) and self.parent.stepCount[self.parent.gameStep] < custom.semStep(self.parent.gameStep)-1:
-                    # print(self.parent.stepCount[self.parent.gameStep], custom.semStep(self.parent.gameStep))
-                    self.parent.tips.append(custom.newTip(self.parent.gameStep,self.parent.stepCount[self.parent.gameStep]))
-                    self.parent.stepCount[self.parent.gameStep] += 1
+                if self.parent.stepCount[self.parent.gameStep] < custom.semStep(self.parent.gameStep):
+                    if custom.isCorrect(cmd, self.parent.gameStep,self.parent.stepCount[self.parent.gameStep]):
+                        self.parent.tips.append(custom.newTip(self.parent.gameStep,self.parent.stepCount[self.parent.gameStep]))
+                        self.parent.stepCount[self.parent.gameStep] += 1
                 self.parent.textEdit.append(result)
+                print('1')
                 self.parent.cursor.movePosition(QTextCursor.End)
+                print('1')
                 self.parent.textEdit.setTextCursor(self.parent.cursor)
+                print('1')
                 self.parent.textEdit.append('Console >> ')
+                print('1')
                 self.parent.cursor.movePosition(QTextCursor.End)
+                print('1')
                 self.parent.textEdit.setTextCursor(self.parent.cursor)
             else:
                 app = cmd.split(' ')[0]
                 p = subprocess.Popen(cmd, shell=True, bufsize=0,stdin=subprocess.PIPE, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
-                self.parent.textEdit.append('')
+                self.parent.tbextEdit.append('')
                 while True:
                     try:
                         line = p.stdout.readline()

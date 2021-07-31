@@ -1,2 +1,0 @@
-# ScienceMathFestival-DECODE
-ScienceMathFestival-DECODE
