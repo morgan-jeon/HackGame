@@ -7,8 +7,15 @@ from PyQt5 import uic
 import time
 import subprocess
 import custom
+import os
 
-form_class = uic.loadUiType("console.ui")[0]
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
+
+form = resource_path('console.ui')
+form_class = uic.loadUiType(form)[0]
 
 class WindowClass(QMainWindow, form_class) :
     def __init__(self) :
@@ -79,7 +86,7 @@ class WindowClass(QMainWindow, form_class) :
                 if flag:
                     result = custom.result(cmd)
                     if self.stepCount[self.gameStep] < custom.semStep(self.gameStep):
-                        if custom.isCorrect(cmd, self.gameStep,self.stepCount[self.gameStep]):
+                        if custom.isCorrect(cmd, self.gameStep,self.stepCount[self.gameStep], self):
                             self.tips.append(custom.newTip(self.gameStep,self.stepCount[self.gameStep]))
                             self.stepCount[self.gameStep] += 1
                     self.textEdit.append(result)

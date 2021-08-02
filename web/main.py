@@ -18,8 +18,6 @@ templates = Jinja2Templates(directory="templates")
 @app.get("/video/{file_path}")
 def main(file_path: str):
     PATH = 'video'
-    if '.' in file_path:
-        file_path = file_path + '.mp4'
     vid_path = os.path.join(PATH, file_path)
     def iterfile():  
         with open(vid_path, mode="rb") as file:  
