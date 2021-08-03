@@ -115,9 +115,7 @@ def msfvenom(src: str):
 	src = ' '.join(src)
 	if src=='-p windows/meterpreter/reverse_tcp LHOST=144.13.135.13 LPORT=2031 -f exe > back.exe':
 		print('File Created')
-		f = open('hack.exe', 'w')
-		f.write('KeKeKe')
-		f.close()
+		os.system('echo kekeke > back.exe')
 		return '''No platform was selected, choosing Msf: : m=Modoul: : Platform: :Windows from the paload
 No Arch selected, selecting Arch: x86 from the payload
 No encoder or badchars specified, outputting raw payload
