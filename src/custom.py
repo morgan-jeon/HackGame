@@ -3,10 +3,10 @@ import os, json
 import requests
 import ast
 
-lis = ast.literal_eval(json.loads(requests.get('http://localhost:8000/api/cmd').content.decode()))
-tipl = ast.literal_eval(json.loads(requests.get('http://localhost:8000/api/tip').content.decode()))
-nTip = ast.literal_eval(json.loads(requests.get('http://localhost:8000/api/new_tip').content.decode()))
-mStep = ast.literal_eval(json.loads(requests.get('http://localhost:8000/api/count').content.decode()))
+lis = ast.literal_eval(json.loads(requests.get('http://sv.m03.pw:8000/api/cmd').content.decode()))
+tipl = ast.literal_eval(json.loads(requests.get('http://sv.m03.pw:8000/api/tip').content.decode()))
+nTip = ast.literal_eval(json.loads(requests.get('http://sv.m03.pw:8000/api/new_tip').content.decode()))
+mStep = ast.literal_eval(json.loads(requests.get('http://sv.m03.pw:8000/api/count').content.decode()))
 
 def semStep(step: int):
 	semStep = [int(i) for i in mStep]	
