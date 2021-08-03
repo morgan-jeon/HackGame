@@ -33,7 +33,7 @@ class WindowClass(QMainWindow, form_class) :
         self.step.setStyleSheet("color: white;")
         self.tips.setStyleSheet("color: yellow; line-height:130%;")
         self.step.setAlignment(Qt.AlignCenter)
-        self.stepCount = [0,0,0,0,0,0,0]
+        self.stepCount = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         self.updateGame(1)
         self.cursor = self.textEdit.textCursor()
         self.gameStep = 1
@@ -61,7 +61,7 @@ class WindowClass(QMainWindow, form_class) :
         self.tips.setText(custom.tip(step))
         if step == 1:
             self.prev_btn.setStyleSheet("color: black;")
-        elif step == 7:
+        elif step == 14:
             self.pushButton.setStyleSheet("color: black;")
         else:
             self.prev_btn.setStyleSheet("color: white;")
@@ -89,7 +89,11 @@ class WindowClass(QMainWindow, form_class) :
                         if custom.isCorrect(cmd, self.gameStep,self.stepCount[self.gameStep], self):
                             self.tips.append(custom.newTip(self.gameStep,self.stepCount[self.gameStep]))
                             self.stepCount[self.gameStep] += 1
-                    self.textEdit.append(result)
+                    if 'on:parent' in result:
+                        self.mainText.setText('')
+                        self.mainText.append(result)
+                    else:
+                        self.textEdit.append(result)
                     self.cursor.movePosition(QTextCursor.End)
                     self.textEdit.setTextCursor(self.cursor)
                     self.textEdit.append('Console >> ')
