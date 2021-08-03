@@ -1,0 +1,18 @@
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [6757] using statreload
+INFO:     Started server process [6784]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     211.251.169.83:48146 - "GET /api/cmd HTTP/1.1" 200 OK
+INFO:     211.251.169.83:48166 - "GET /api/tip HTTP/1.1" 200 OK
+INFO:     211.251.169.83:48169 - "GET /api/new_tip HTTP/1.1" 200 OK
+INFO:     211.251.169.83:63074 - "GET /api/cmd HTTP/1.1" 200 OK
+INFO:     211.251.169.83:63095 - "GET /api/tip HTTP/1.1" 200 OK
+INFO:     211.251.169.83:63100 - "GET /api/new_tip HTTP/1.1" 200 OK
+INFO:     211.251.169.83:63105 - "GET /api/count HTTP/1.1" 200 OK
+INFO:     211.251.169.83:5438 - "GET /api/cmd HTTP/1.1" 200 OK
+INFO:     211.251.169.83:5457 - "GET /api/tip HTTP/1.1" 200 OK
+INFO:     211.251.169.83:5462 - "GET /api/new_tip HTTP/1.1" 200 OK
+INFO:     211.251.169.83:5467 - "GET /api/count HTTP/1.1" 200 OK
+INFO:     185.180.143.77:38946 - "GET / HTTP/1.1" 404 Not Found
+INFO:     134.122.50.244:61953 - "GET / HTTP/1.0" 404 Not Found
