@@ -125,16 +125,18 @@ Payload size: 333bytes
 Final size of exe file: 73802 bytes'''
 
 def msf(src: str):
-	return 'payload => windows/meterpreter/reverse_tcp'
+	return '[*] MSF Handler Started...'
 
 def set(src: str):
     src = ' '.join(src)
     if 'LHOST' in src:
-        return 'lhost => 144.168.0.22'
+        return '[*] lhost => 144.13.135.13'
     elif 'LPORT' in src:
-        return 'lport => 2031'
+        return '[*] lport => 2031'
     elif 'Exit' in src:
-        return 'ExitONsession => false'
+        return '[*] ExitONsession => false'
+    elif 'payload' in src:
+       	return '[*] payload windows/meterpreter/reverse_tcp'
 
 def open(src: str):
 	file = src[0]

