@@ -30,8 +30,8 @@ class WindowClass(QMainWindow, form_class) :
 
         self.mainText.setStyleSheet("color: white;")
 
-        self.step.setStyleSheet("color: green;")
-        self.tips.setStyleSheet("color: yellow;")
+        self.step.setStyleSheet("color: white;")
+        self.tips.setStyleSheet("color: yellow; line-height:130%;")
         self.step.setAlignment(Qt.AlignCenter)
         self.stepCount = [0,0,0,0,0,0,0]
         self.updateGame(1)
