@@ -1,0 +1,1 @@
+ssh jeonmogeon@sv.gshs.site -p 31015 cd /home/jeonmogeon/projects/HackGame && git pull
