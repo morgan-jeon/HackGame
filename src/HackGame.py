@@ -90,15 +90,10 @@ class WindowClass(QMainWindow, form_class) :
                             self.tips.append(custom.newTip(self.gameStep,self.stepCount[self.gameStep]))
                             self.stepCount[self.gameStep] += 1
                     self.textEdit.append(result)
-                    print('1')
                     self.cursor.movePosition(QTextCursor.End)
-                    print('1')
                     self.textEdit.setTextCursor(self.cursor)
-                    print('1')
                     self.textEdit.append('Console >> ')
-                    print('1')
                     self.cursor.movePosition(QTextCursor.End)
-                    print('1')
                     self.textEdit.setTextCursor(self.cursor)
                 else:
                     app = cmd.split(' ')[0]
