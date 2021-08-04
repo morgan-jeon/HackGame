@@ -16,9 +16,8 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 ### Version Control ###
-new_version = int(requests.get('https://raw.githubusercontent.com/jeonmogeon/HackGame/main/version').content.decode())
+new_version = int(requests.get('https://raw.githubusercontent.com/jeonmogeon/HackGame/main/src/version').content.decode())
 old_version = int(open(resource_path('version')).read())
-
 print(old_version)
 if old_version < new_version:
     f = open('update.bat', 'w')
