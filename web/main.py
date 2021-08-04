@@ -20,10 +20,7 @@ templates = Jinja2Templates(directory="templates")
 def main(file_path: str):
     PATH = 'video'
     vid_path = os.path.join(PATH, file_path)
-    def iterfile():  
-        with open(vid_path, mode="rb") as file:  
-            yield from file 
-    return StreamingResponse(iterfile(), media_type="video/mp4")
+    return FileResponse(vid_path, media_type="video/mp4")
 
 @app.get("/file/{file_path}", response_class=FileResponse)
 async def main(file_path: str):
