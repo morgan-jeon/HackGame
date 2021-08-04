@@ -191,10 +191,34 @@ a9 e0 fe 35 21 0f 6b 9c fd b6 8d 32 d7 2d f3 e2
 	elif file == "protect_system.decom":
 		return '''on:parent+mainText DECOMPILER of CPP EXE FILES by Ansterma. ver1a
 ----SRC----
-#include<cstdio>
-int main(){
-	
+SecurityCommonService.loginCodeSubject();
+Password = dEcodE36#;
+Pcore_T = 21;
+if(Pcore_T != 100)
+{
+	Principal petePrincipal = new PrincipalImpl(“pete”);
+	Subject pete = new Subject(petePrincipal);
+	PasswordFactory pf = new PasswordFactory(“petepw”);
+	pete.getCredentialFactories().add(pf);
+	AuthenticationRepositoryService.addSubject(pete);
+	Policy policy = new Policy();
+	Role someRole = new RoleImpl(“someRole”);
+	Permission rolePermission = new RolePermission(someRole);
+	policy.getRolePolicy().addPermission( rolePermission, new Object[] {petePrincipal}, false, false);
+	Permission rscPermission = new ResourcePermission(“rsc1”, “action1,action2”);
+	policy.getResourcePolicy(“ctx1”, true).addPermission(rscPermission, new Object[] {someRole}, false, false);
+	AuthorizationRepositoryService.addPolicy(policy);
+	SecurityCommonService.logout();
+	Subject core2 = Subject.makeSubject(“core”, “corepw”);
+	SecurityCommonService.loginDefault(core2);
+	SecurityCommonService.checkPermission(“prt1”, new ResourcePermissin(“prt1”, “protect_start”);
+	System.out.println(SecurityCommonService.getCurrentSubject().getPrincipal().getName());
 }
+else
+{
+	System.out.println(“DO NOT PROTECT”);
+}
+SecurityCommonService.logout();
 '''
 
 def cellbroad_attack(src: str):
