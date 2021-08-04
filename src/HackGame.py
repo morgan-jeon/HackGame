@@ -21,7 +21,7 @@ old_version = int(open(resource_path('version')).read())
 print(old_version)
 if old_version < new_version:
     f = open('update.bat', 'w')
-    f.write('del HackGame.exe\ncurl https://raw.githubusercontent.com/jeonmogeon/HackGame/main/src/HackGame.exe\ndel update.bat')
+    f.write('del HackGame.exe\ncurl https://raw.githubusercontent.com/jeonmogeon/HackGame/main/src/HackGame.exe -o HackGame.exe\ndel update.bat')
     f.close()
     os.startfile("update.bat")
     sys.exit()
