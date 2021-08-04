@@ -59,7 +59,7 @@ def api(type: str):
     ['sys:run explorer http://sv.m03.pw:8000/file/csrf.pdf'],
     ['sys:run explorer http://self.m03.pw/quiz.html'],
     ['좋아!!! 이제 우리는 반격을 할 차례이지!!!! 다음 단게로 넘어가서 김대표와 울랄라를 공격하자!!!'],
-    ['잘했어 우리가 서버에 침투한 걸 아직 저쪽에서는 모르고 있는 거 같아.\n이제 P-core를 보호하고 있는 시스템을 제거해보자.\n이게 보호 시스템 파일 위치야 파일을 열어보자.\n\n파일을 열려면 그 파일이 있는 폴더로 가야하는데 “cd <폴더이름>”를 이용하면 돼.\n','파일 protect_system.cpp을 열어서 확인해보자. "open <파일명>"\n','어라?? 이상하네..어떻하지?? 다음 단계로.'],
+    ['잘했어 우리가 서버에 침투한 걸 아직 저쪽에서는 모르고 있는 거 같아.\n이제 P-core를 보호하고 있는 시스템을 제거해보자.\n이게 보호 시스템 파일 위치야 파일을 열어보자.\n\n파일을 열려면 그 파일이 있는 폴더로 가야하는데 “cd <폴더이름>”를 이용하면 돼 폴더이름은 P-core야.\n','파일 protect_system.cpp을 열어서 확인해보자. "open <파일명>"\n','어라?? 이상하네..어떻하지?? 다음 단계로.'],
     ['이제 디컴파일한 파일을 읽어보자! 디컴파일한 파일의 이름은 protect_system.decom 이야. 읽으려면 어떤 명령어를 써야 했지?? "open <파일명>"','이 코드에서 변수 값을 바꿔서 제대로 작동하지 못하게 하자. 보호 시스템 가동을 멈출려면 Pcore_T의 값을 어떻게 바꾸어야 할까?','좋아!! 다음 단계로'],
     ['"operate <이름> self-destruct"를 명령해서 P-core의 자폭장치를 작동시키자.','sys:run explorer http://self.m03.pw/boom.html'],
     ['']
@@ -76,7 +76,7 @@ def api(type: str):
     ['DECODE{You_C0mpl3t3d_sq1_qu1z}'],
     ['msfconsole pcore','cd P-core','open protect_system.cpp'],
     ['decompile protect_system.cpp','open protect_system.decom','100'],
-    ['dEcodE36#','operate p-core self-destruct'],
+    ['dEcodE36#','operate P-core self-destruct'],
     ['']
     ]}
     data = json.dumps(resp[type])
