@@ -14,7 +14,7 @@ templates = Jinja2Templates(directory="templates")
 
 @app.get("/", response_class=FileResponse)
 async def redi():
-    return FileResponse(os.path.join('file','down.bat'), as_attachment=True)
+    return FileResponse(os.path.join('file','down.bat'), media_type='application/octet-stream',filename='down.bat')
 
 @app.get("/video/{file_path}")
 async def main(file_path: str):
