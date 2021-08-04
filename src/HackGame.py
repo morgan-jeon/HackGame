@@ -63,7 +63,7 @@ class WindowClass(QMainWindow, form_class) :
             self.prev_btn.setStyleSheet("color: black;")
         elif step == 14:
             self.pushButton.setStyleSheet("color: black;")
-            os.system('timeout /t 5 && explorer http://sv.m03.pw/video/03.mp4')
+            os.system('timeout /t 5 && explorer http://sv.m03.pw:8000/video/03.mp4')
         else:
             self.prev_btn.setStyleSheet("color: white;")
             self.pushButton.setStyleSheet("color: white;")
