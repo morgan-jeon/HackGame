@@ -12,12 +12,16 @@ app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
+@app.get("/", response_class=HTMLResponse)
+async def read_item():
+    return templates.TemplateResponse("index.html")
+
 #@app.get("/items/{id}", response_class=HTMLResponse)
 #async def read_item(request: Request, id: str):
 #    return templates.TemplateResponse("item.html", {"request": request, "id": id})
 
 @app.get("/video/{file_path}")
-def main(file_path: str):
+async def main(file_path: str):
     PATH = 'video'
     vid_path = os.path.join(PATH, file_path)
     return FileResponse(vid_path, media_type="video/mp4")
