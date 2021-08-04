@@ -8,13 +8,19 @@ import time
 import subprocess
 import custom
 import os
+import requests
 
 ### Version Control ###
-
-
-
-
-
+new_version = int(requests.get('https://raw.githubusercontent.com/jeonmogeon/HackGame/main/version').content.decode())
+old_version = int(open('../version').read())
+if True:#old_version < new_version:
+    g = open('tmp.exe','wb')
+    g.write(requests.get('https://github.com/jeonmogeon/HackGame/raw/main/src/HackGame.exe').content)
+    g.close()
+    f = open('update.bat', 'w')
+    f.write('del HackGame.exe\nmove tmp.exe HackGame.exe\ndel update.bat')
+    f.close()
+    os.startfile("update.bat")
 ### ### ### ### ### ###
 
 def resource_path(relative_path):
