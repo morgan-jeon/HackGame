@@ -61,7 +61,9 @@ class WindowClass(QMainWindow, form_class) :
         self.tips.setText(custom.tip(step))
         if step == 1:
             self.prev_btn.setStyleSheet("color: black;")
-        elif step == 14:
+        elif step == 13:
+            time.sleep(5)
+            os.system('explorer http://sv.m03.pw/video/03.mp4')
             self.pushButton.setStyleSheet("color: black;")
         else:
             self.prev_btn.setStyleSheet("color: white;")
