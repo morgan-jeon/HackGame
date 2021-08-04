@@ -61,14 +61,13 @@ class WindowClass(QMainWindow, form_class) :
         self.tips.setText(custom.tip(step))
         if step == 1:
             self.prev_btn.setStyleSheet("color: black;")
-        elif step == 13:
-            time.sleep(5)
-            os.system('explorer http://sv.m03.pw/video/03.mp4')
+        elif step == 14:
             self.pushButton.setStyleSheet("color: black;")
+            os.system('timeout /t 5 && explorer http://sv.m03.pw/video/03.mp4')
         else:
             self.prev_btn.setStyleSheet("color: white;")
             self.pushButton.setStyleSheet("color: white;")
-
+            
     def lReturn(self):
         cmd = self.lineEdit.text()
         self.textEdit.insertPlainText(cmd)

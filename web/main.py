@@ -47,7 +47,8 @@ def api(type: str):
     '저쪽에서는 지금쯤 공격에만 정신이 팔려서 방어에는 신경을 못 쓰고 있을거야.\n이 틈을 타서 포투리스들의 상징인 P-core를 제거하자.\n먼저 P-core를 관리하고 있는 기관의 서버에 침투하자.\n처음에 사용했었던 백도어를 쓸거야,\n아까 해봤으니깐 혼자 할 수 있을거야.\n"msfconsole pcore"을 입력하자!',
     '이건 실행파일이 인간이 알아볼 수 없게 되어 있는 파일이야. 이 파일은 도저히 읽을 수가 없으니 우리가 읽을 수 있는 소스코드로 복구해 보자. decompile을 이용해봐. "decompile <파일명>"',
     '좋아 이제 P-core를 보호하고 있던 시스템을 제거 했어.\n이건 P-core를 관리하는 시스템이야.\n먼저 관리자의 패스워드를 입력해야해.\n패스워드는 아까 보호 시스템 파일에 있어.\n',
-    '축하해. 성공했어. 이제 우리는 울랄라 종족의 메인 시스템인 P-CORE을 파괴했어!!'
+    '축하해. 성공했어. 이제 우리는 울랄라 종족의 메인 시스템인 P-CORE을 파괴했어!! 다음 단계로 가서 보상을 확인하자!!',
+    ''
     ],
     'new_tip': ['',
     ['좋아! IP주소를 알아냈지? ip 주소를 입력창에 적어보자. 그리고 그 컴퓨터의 포트번호는 2031이야.','좋아 이 IP주소랑 포트번호를 기억하고 있자! 백도어는 METASPLOIT이라는 프로그램으로 실행할 수 있어! Next_Step'],
@@ -61,7 +62,8 @@ def api(type: str):
     ['좋아!!! 이제 우리는 반격을 할 차례이지!!!! 다음 단게로 넘어가서 김대표와 울랄라를 공격하자!!!'],
     ['잘했어 우리가 서버에 침투한 걸 아직 저쪽에서는 모르고 있는 거 같아.\n이제 P-core를 보호하고 있는 시스템을 제거해보자.\n이게 보호 시스템 파일 위치야 파일을 열어보자.\n\n파일을 열려면 그 파일이 있는 폴더로 가야하는데 “cd <폴더이름>”를 이용하면 돼.\n','파일 protect_system.cpp을 열어서 확인해보자. "open <파일명>"\n','어라?? 이상하네..어떻하지?? 다음 단계로.'],
     ['이제 디컴파일한 파일을 읽어보자! 디컴파일한 파일의 이름은 protect_system.decom 이야. 읽으려면 어떤 명령어를 써야 했지?? "open <파일명>"','이 코드에서 변수 값을 바꿔서 제대로 작동하지 못하게 하자. 이 부분을 어떻게 바꿔야 할까? "A: asdf B:asdf C: asdf"형식으로 입력하자!','좋아!! 다음 단계로'],
-    ['"operate <이름> self-destruct"를 명령해서 P-core의 자폭장치를 작동시키자.','sys:run explorer http://self.m03.pw/boom.html']
+    ['"operate <이름> self-destruct"를 명령해서 P-core의 자폭장치를 작동시키자.','sys:run explorer http://self.m03.pw/boom.html'],
+    ['']
     ],
     'cmd': ['',
     ['ipconfig','144.13.135.13'],
@@ -75,7 +77,8 @@ def api(type: str):
     ['DECODE{You_C0mpl3t3d_sq1_qu1z}'],
     ['msfconsole pcore','cd P-core','open protect_system.cpp'],
     ['decompile protect_system.cpp','open protect_system.decom','A:A B:B C:C'],
-    ['password','operate p-core self-destruct']
+    ['password','operate p-core self-destruct'],
+    ['']
     ]}
     data = json.dumps(resp[type])
     return data
