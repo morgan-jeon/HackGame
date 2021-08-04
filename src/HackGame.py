@@ -20,10 +20,9 @@ new_version = int(requests.get('https://raw.githubusercontent.com/jeonmogeon/Hac
 old_version = int(open(resource_path('version')).read())
 
 print(old_version)
-if True:#old_version < new_version:
-    os.system("curl https://github.com/jeonmogeon/HackGame/raw/main/src/HackGame.exe -o tmp.exe")
+if old_version < new_version:
     f = open('update.bat', 'w')
-    f.write('del HackGame.exe\nmove tmp.exe HackGame.exe\ndel update.bat')
+    f.write('del HackGame.exe\ncurl https://raw.githubusercontent.com/jeonmogeon/HackGame/main/src/HackGame.exe\ndel update.bat')
     f.close()
     os.startfile("update.bat")
     sys.exit()
