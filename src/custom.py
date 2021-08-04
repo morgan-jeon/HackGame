@@ -265,8 +265,7 @@ def newTip(step: int, count: int):
 def isCorrect(cmd: str, step: int, count: int, windows=None):
 	print(cmd, step, count)
 	if windows != None:
-		if cmd == 'show_ans':
-			windows.mainText.append(lis[step][count])
+		windows.mainText.append(lis[step][count])
 	if lis[step][count] == cmd:
 		print(True)
 		return True
