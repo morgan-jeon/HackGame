@@ -134,7 +134,7 @@ def set(src: str):
     elif 'Exit' in src:
         return '[*] ExitONsession => false'
     elif 'payload' in src:
-       	return '[*] payload windows/meterpreter/reverse_tcp'
+       	return '[*] payload => windows/meterpreter/reverse_tcp'
 
 def open(src: str):
 	file = src[0]
