@@ -143,5 +143,6 @@ class WindowClass(QMainWindow, form_class) :
 if __name__ == "__main__" :
     app = QApplication(sys.argv) 
     myWindow = WindowClass()
+    myWindow.setWindowTitle(f'HackGame.exe Ver.{old_version}')
     myWindow.show()
     app.exec_()
