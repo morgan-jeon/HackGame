@@ -27,7 +27,6 @@ async def main(file_path: str):
     PATH = 'file'
     return os.path.join(PATH, file_path)
 
-
 @app.get("/api/{type}")
 def api(type: str):
     resp = {'count':['0','2','2','1','2','7','2','1','1','1','2','3','2','1'],
