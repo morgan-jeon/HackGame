@@ -102,9 +102,15 @@ Console options:
 	-x,  --execute-command COMMAND	Execute the specified string as console commands (use ; for multiples)
 	-h, --help				Show this message
 	'''
-	elif src=='get-cam':
-		return '''Usage of Get-Cam
-get-cam --ip asdf --port asdf --sys windows10/64 --hw samsung'''
+	elif src=='getcam':
+		return '''Usage: webcam [options]
+Common options
+	-getcam			--The webcam starts and sends out the recorded video
+	-getimage		--Take a picture and send it out
+	-screen			--Start the screen recording and send out the video.
+	-open			--Open a video		
+	-help			--Help
+'''
 	elif src=='cellbroad-attack':
 		return '''Usage: cellbroad-attack [URL]
 Example: cellbroad-attack http://sv.m03.pw/video/03.mp4'''
@@ -130,13 +136,13 @@ def msf(src: str):
 def set(src: str):
     src = ' '.join(src)
     if 'LHOST' in src:
-        return '[*] lhost => 144.13.135.13'
+        return '[*] LHOST => 144.13.135.13'
     elif 'LPORT' in src:
-        return '[*] lport => 2031'
+        return '[*] LPORT => 2031'
     elif 'Exit' in src:
         return '[*] ExitONsession => false'
     elif 'payload' in src:
-       	return '[*] payl oad => windows/meterpreter/reverse_tcp'
+       	return '[*] Payload => windows/meterpreter/reverse_tcp'
     else:
     	return 'FUO'
 
