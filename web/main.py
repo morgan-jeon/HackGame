@@ -1,4 +1,5 @@
-from fastapi import FastAPI, Response
+# -*- coding: utf-8 -*-
+from fastapi import FastAPI, Response, Request
 import uvicorn
 import os
 import sys
@@ -15,6 +16,14 @@ templates = Jinja2Templates(directory="templates")
 @app.get("/", response_class=FileResponse)
 async def redi():
     return FileResponse(os.path.join('file','down.bat'), media_type='application/octet-stream',filename='down.bat')
+
+@app.get("/log/{cmd}")
+async def steps(step: str, request: Request):
+    ip = request.client.host
+    f = open('log', 'a')
+    f.write(f'cmd {cmd} for {ip}\n')
+    f.close()
+    return 'ok'
 
 @app.get("/video/{file_path}")
 async def main(file_path: str):
@@ -46,7 +55,7 @@ def api(type: str):
     '퀴즈를 풀어서 나온 코드를 입력해 보자! 그리면 김대표의 해킹을 막을 수 있어!!',
     '저쪽에서는 지금쯤 공격에만 정신이 팔려서 방어에는 신경을 못 쓰고 있을거야.\n이 틈을 타서 포투리스들의 상징인 P-core를 제거하자.\n먼저 P-core를 관리하고 있는 기관의 서버에 침투하자.\n처음에 사용했었던 백도어를 쓸거야,\n아까 해봤으니깐 혼자 할 수 있을거야.\n"msfconsole pcore"을 입력하자!',
     '이건 실행파일이 인간이 알아볼 수 없게 되어 있는 파일이야. 이 파일은 도저히 읽을 수가 없으니 우리가 읽을 수 있는 소스코드로 복구해 보자. decompile을 이용해봐. "decompile <파일명>"',
-    '좋아 이제 P-core를 보호하고 있던 시스템을 제거 했어.\n이건 P-core를 관리하는 시스템이야.\n먼저 관리자의 패스워드를 입력해야해.\n패스워드는 아까 보호 시스템 파일에 있어.\n',
+    '좋아 이제 P-core를 보호하고 있던 시스request: Request템을 제거 했어.\n이건 P-core를 관리하는 시스템이야.\n먼저 관리자의 패스워드를 입력해야해.\n패스워드는 아까 보호 시스템 파일에 있어.\n',
     '좋아, 성공했어 곧 P-core가 폭파할거야!!!\n 으아ㅏ 잠시만 지금 경찰이 왔나봐\n 우리는 지금 도망갈거니 너도 빨리 도망가!!',
     ''
     ],
@@ -56,7 +65,7 @@ def api(type: str):
     ['도움말을 읽어보고 무엇을 해야 할지 생각해 보자! 근데 페이로드는 뭐고, msfvenom은 뭐지..? "openvideo"를 치고 영상을 보고 다음 단계로 넘어가자!','sys:run explorer http://sv.m03.pw:8000/video/p01.mp4'],
     ['이제 다운로드 폴더에 EXE파일이 생성되었겠지?? 다음단계로 넘어가서 이 파일을 보내보자!'],
     ['이제 msf콘솔을 사용할 수 있어!\n원격제어를 하기위한 방법을 알기전에 영상을 보자. 어떤 명령어를 입력해야 하지? "openvideo" \n\n영상을 본 후에 다음 단계로 넘어가자\n','sys:run explorer http://sv.m03.pw:8000/video/p02.mp4'],
-    ['좋아 다목적 핸들러를 실행했어! 이제 페이로드를 세팅하자 아까 사용한 페이로드가 뭐였지? "set payload windows/meterpreter/reverse_tcp"','페이로드도 세팅되었으니 IP를 입력 해야겠지?(<명령어> LHOST=<IP>형식으로 입력하자)','포트번호도 입력해야지? LPORT=<포트>','이제 상대컴퓨터와 우리 컴퓨터의 연결이 끊어졌을 때를 대비해 우리 PC가 상대의 연결을 상시 대기할 수 있도록 하는 작업이 필요해. ExitONsession false라는 명령어를 세팅하면 그 기능을 실행할 수 있어.','좋아! 이제 그 컴퓨터는 너의 것이야! 이제 우리는 카메라를 켜야겠지? 카메라에서 영상을 가져오는 명령어는 getcam이야. 어떻게 사용하는 건지 도움말을 보자!?','\n동영상을 가져와보자!\n','sys:run explorer http://sv.m03.pw:8000/video/01.mp4'],
+    ['좋아 다목적 핸들러를 실행했어! 이제 페이로드를 세팅하자 아까 사용한 페이로드가 뭐였지? "set payload windows/meterpreter/reverse_tcp"','페이로드도 세팅되었으니 IP를 입력 해야겠지?(<명령어> LHOST=<IP>형식으로 입력하자)','포트번호도 입력해야지? LPORT=<포트>','이제 상대컴퓨터와 우리 컴퓨터의 연결이 끊어졌을 때를 대비해 우리 PC가 상대의 연결을 상시 대기할 수 있도록 하는 작업이 필요해. ExitONsession false라는 명령어를 세팅하면 그 기능을 실행할 수 있어.','좋아! 이제 그 컴퓨터는 너의 것이야! 이제 우리는 카메라를 켜야겠지? 카메라에서 영상을 가져오는 명령어는 getcam이야. 어떻게 사용하는 건지 도움말을 보자!','\n동영상을 가져와보자!\n','sys:run explorer http://sv.m03.pw:8000/video/01.mp4'],
     ['좋아! 전송됐어!! 이제 많은 사람들이 진실을 알게 될거야!!!!!! 뉴스를 한번 볼까?? "openvideo"','sys:run explorer http://sv.m03.pw:8000/video/02.mp4'],
     ['sys:run explorer http://sv.m03.pw:8000/file/csrf.pdf'],
     ['sys:run explorer http://self.m03.pw/quiz.html'],

