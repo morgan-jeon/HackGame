@@ -25,16 +25,17 @@ async def feed(request: Request):
 async def steps(cmd: str, request: Request):
     ip = request.client.host
     f = open('log', 'a')
-    f.write(f'cmd {cmd} for {ip}\n')
+    f.write(f'{ip}: {cmd}\n')
     f.close()
     return 'ok'
 
 @app.get("/view_log")
-async def viewlog():
+async def viewlog(request: Request):
     f = open('log', 'r')
     log = f.read()
     f.close()
-    return log
+    logs = log.split('\n')
+    return templates.TemplateResponse("log.html", {"request": request, "logs": logs})
 
 @app.get("/video/{file_path}")
 async def main(file_path: str):
