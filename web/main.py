@@ -13,9 +13,13 @@ app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
-@app.get("/", response_class=FileResponse)
-async def redi():
-    return FileResponse(os.path.join('file','down.bat'), media_type='application/octet-stream',filename='down.bat')
+@app.get("/")
+async def root(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
+
+@app.get("/feed")
+async def feed(request: Request):
+    return templates.TemplateResponse("feed.html", {"request": request})
 
 @app.get("/log/{cmd}")
 async def steps(cmd: str, request: Request):
@@ -102,4 +106,4 @@ def api(type: str):
     return data
 
 if __name__=="__main__":
-    uvicorn.run('main:app', host='0.0.0.0', port=8000, debug=True, reload=True)
+    uvicorn.run('main:app', host='0.0.0.0', port=80, debug=True, reload=True)

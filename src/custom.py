@@ -3,10 +3,10 @@ import os, json
 import requests
 import ast
 
-lis = ast.literal_eval(json.loads(requests.get('http://sv.m03.pw:8000/api/cmd').content.decode()))
-tipl = ast.literal_eval(json.loads(requests.get('http://sv.m03.pw:8000/api/tip').content.decode()))
-nTip = ast.literal_eval(json.loads(requests.get('http://sv.m03.pw:8000/api/new_tip').content.decode()))
-mStep = ast.literal_eval(json.loads(requests.get('http://sv.m03.pw:8000/api/count').content.decode()))
+lis = ast.literal_eval(json.loads(requests.get('http://sv.m03.pw/api/cmd').content.decode()))
+tipl = ast.literal_eval(json.loads(requests.get('http://sv.m03.pw/api/tip').content.decode()))
+nTip = ast.literal_eval(json.loads(requests.get('http://sv.m03.pw/api/new_tip').content.decode()))
+mStep = ast.literal_eval(json.loads(requests.get('http://sv.m03.pw/api/count').content.decode()))
 
 def semStep(step: int):
 	semStep = [int(i) for i in mStep]	
@@ -121,7 +121,7 @@ def msfvenom(src: str):
 	src = ' '.join(src)
 	if '-p windows/meterpreter/reverse_tcp' in src:
 		print('File Created')
-		os.system('curl http://sv.m03.pw:8000/file/back.pptx -o back.PPT')
+		os.system('curl http://sv.m03.pw/file/back.pptx -o back.PPT')
 		return '''No platform was selected, choosing Msf: : m=Modoul: : Platform: :Windows from the paload
 No Arch selected, selecting Arch: x86 from the payload
 No encoder or badchars specified, outputting raw payload
