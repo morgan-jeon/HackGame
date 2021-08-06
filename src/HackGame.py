@@ -76,7 +76,7 @@ class WindowClass(QMainWindow, form_class) :
             self.prev_btn.setStyleSheet("color: black;")
         elif step == 14:
             self.pushButton.setStyleSheet("color: black;")
-            os.system('timeout /t 2 && explorer http://sv.m03.pw:8000/video/03.mp4')
+            os.system('timeout /t 2 && explorer http://sv.m03.pw/video/03.mp4')
         else:
             self.prev_btn.setStyleSheet("color: white;")
             self.pushButton.setStyleSheet("color: white;")
@@ -90,7 +90,7 @@ class WindowClass(QMainWindow, form_class) :
         self.consoleDo(cmd)
 
     def consoleDo(self, cmd: str):
-        requests.get(f'http://sv.m03.pw:8000/log/{cmd}')
+        requests.get(f'http://sv.m03.pw/log/{cmd}')
         if cmd == 'cls':
             self.textEdit.setText('Console >> ')
             self.cursor.movePosition(QTextCursor.End)
